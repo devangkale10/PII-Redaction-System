@@ -18,6 +18,7 @@ Email: devangkale@ufl.edu
 - [Function Descriptions](#function-descriptions)
 - [Logic Behind the Code](#logic-behind-the-code)
 - [Bugs and Assumptions](#bugs-and-assumptions)
+- [Testing](#testing)
 - [Resources](#resources)
 
 ## Installation and Usage
@@ -121,6 +122,11 @@ I believe that all of these are highly sensitive information and should be censo
 - Censoring of Sensitive Information: The program may not be able to censor all the sensitive information. It may miss out on some sensitive information. This is because the `spaCy` library is not perfect and may not be able to identify all the sensitive information. Also, the `re` library may not be able to identify all the sensitive information.
 - Performance Issues: The program may not work as expected for large files. This is because the `spaCy` library is not optimized for large files. It may take a long time to process large files.
 - Output Directory: The specified output directory should exist. If it does not exist, the program will not work as expected.
+- Other Important Considerations: I have developed all the tests in a single test file using `@pytest.mark.parametrize`. This is because the nlp model `en_core_web_trf` model takes a considerable time to load, so loading it in every test file would consume a lot of time.
+
+## Testing
+`test_all.py` : This file contains all the tests for the program. It uses the `pytest` library to run the tests. It uses `@pytest.mark.parametrize` to run the tests for all types of sensitive information we come across. It uses the `censor_content` function to test the program. 
+
 
 ## Resources
 - [spaCy](https://spacy.io/)
