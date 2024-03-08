@@ -64,6 +64,8 @@ def censor_content(content, nlp, label_mapping):
 
     # Add names_count to PERSON key in entity_counts
     # Check if PERSON key exists in entity_counts first
+    # We do this because even spacy recognizes names as PERSON entities
+    # and we want to add our regex found names to the PERSON count
     if "PERSON" in entity_counts:
         entity_counts["PERSON"] += names_count
     else:
